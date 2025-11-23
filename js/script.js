@@ -1,5 +1,4 @@
 const listaUsuarios = document.getElementById("listaUsuarios");
-console.log(listaUsuarios);
 
 fetch("https://jsonplaceholder.typicode.com/users")
   .then((response) => {
@@ -25,22 +24,33 @@ fetch("https://jsonplaceholder.typicode.com/users")
     console.log("Ha habido un error");
   });
 
-console.log(newUsuarios);
-
 function mostrar(pepes) {
   pepes.forEach((pepito) => {
     const item = document.createElement("li");
     const contenedor = document.createElement("div");
-    contenedor.innerHTML = `
+    contenedor.classList.add("user-card");
+    const contenedorDatos1 = document.createElement("div");
+    contenedorDatos1.classList.add("card-datos");
+    const contenedorDatos2 = document.createElement("div");
+    contenedorDatos2.classList.add("address");
+    contenedorDatos1.innerHTML = `
+    <div>
+    <p><b>Name:</b>${pepito.name}</p>
+    <p><b>Age:</b> ${pepito.age}</p>
+    <p><b>Username:</b> ${pepito.username}</p>
+    <p><b>Phone:</b> ${pepito.phone}</p>
+    <p><b>Email:</b> ${pepito.email}</p>
+    </div>
     <img src="${pepito.img}" alt="${pepito.name}">
-    <h2>${pepito.name}</h2>
-    <p>Edad: ${pepito.age}</p>
-    <p>Usuario: ${pepito.username}</p>
-    <p>Tel: ${pepito.phone}</p>
-    <p>Email: ${pepito.email}</p>
-    <p>${pepito.address.street}, ${pepito.address.suite}, ${pepito.address.city}</p>
     `;
+    contenedor.innerHTML = `
+     
+    `;
+    contenedorDatos2.innerHTML = `<p><b>Compan:y</b> ${pepito.company.name}</p>
+    <p><b>Address:</b> ${pepito.address}</p>`;
     item.appendChild(contenedor);
+    contenedor.appendChild(contenedorDatos1);
+    contenedor.appendChild(contenedorDatos2);
     listaUsuarios.appendChild(item);
   });
 }

@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+  line-height: 0.5;
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
@@ -10,4 +11,38 @@ h1 {
   color: #333;
 }
 
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-around;
+}
 
+li {
+  list-style: none;
+}
+
+.user-card {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+ul li div img {
+  width: 120px;
+  height: 120px;
+}
+
+.card-datos {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+}
+.card-datos div {
+  border: 1px solid gray;
+  width: 320px;
+  padding: 8px;
+}
